@@ -37,7 +37,7 @@
 
 <script>
     function display(txt) {
-        $('#result').text(txt.type);
+        $('#result').text(txt.result);
     }
 
     $(function () {
@@ -45,7 +45,7 @@
         $('.submit').click(function () {
             var clientId = $('#ClientId').val();
 
-            fetch(`http://localhost:8080/getClientName/?clientId=${clientId}`,
+            fetch(`http://localhost:8080/search/?clientId=${clientId}`,
                 {method: 'GET'})
                 .then(response => response.json())
                 .then((response) => {

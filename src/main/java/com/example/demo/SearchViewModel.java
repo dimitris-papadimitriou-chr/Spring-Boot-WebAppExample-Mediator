@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 
-public class ClientViewModel {
+public class SearchViewModel {
 
     private String type;
-    private Integer value;
+    private String result;
 
-    public ClientViewModel() {
+    public SearchViewModel() {
     }
 
     public String getType() {
@@ -20,19 +20,19 @@ public class ClientViewModel {
         this.type = type;
     }
 
-    public Integer getValue() {
-        return value;
+    public String getResult() {
+        return result;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
+    public void setResult(String value) {
+        this.result = value;
     }
 
     @Override
     public String toString() {
-        return "Client{" +
+        return "Search{" +
                 "type='" + type + '\'' +
-                ", value=" + value +
+                ", result=" + result +
                 '}';
     }
 }
