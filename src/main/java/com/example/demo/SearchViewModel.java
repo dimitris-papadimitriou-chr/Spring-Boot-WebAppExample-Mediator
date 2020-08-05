@@ -9,7 +9,8 @@ public class SearchViewModel {
     private String type;
     private String result;
 
-    public SearchViewModel() {
+    public SearchViewModel(String result) {
+        this.result=result;
     }
 
     public String getType() {
