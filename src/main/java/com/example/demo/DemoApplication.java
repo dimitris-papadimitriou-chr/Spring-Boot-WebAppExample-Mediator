@@ -1,8 +1,6 @@
 package com.example.demo;
 
 import commands.GetClientCommand;
-import commands.GetClientCommandHandler;
-import mediator.Pipeline;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.stream.Stream;
-
 import static io.vavr.API.Try;
 import static operators.Extensions.throwableMessage;
 
@@ -21,11 +17,11 @@ import static operators.Extensions.throwableMessage;
 @RestController
 public class DemoApplication {
 
-    static Pipeline mediator;
+     static DemoAppMediator mediator = new DemoAppMediator();
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
-        mediator = new mediator.Pipelinr().with(() -> Stream.of(new GetClientCommandHandler()));
+        mediator.RegisterHandlers();
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
