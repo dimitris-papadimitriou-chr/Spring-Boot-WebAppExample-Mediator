@@ -8,17 +8,18 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 
-public class MockFutureEitherEmployeeRepository {
+public class MockEmployeeRepository implements Repository<Employee,Integer> {
 
     private Employee[] clients;
 
-    public MockFutureEitherEmployeeRepository() {
+    public MockEmployeeRepository() {
         this.clients = new Employee[]{
                 new Employee(1, "jim"),
                 new Employee(2, "john")};
     }
 
-    public CompletableFuture<Either<String, Employee>> getClientById(int id) {
+    @Override
+    public CompletableFuture<Either<String, Employee>> getById(Integer id) {
 
         var t = Stream.of(clients)
                 .filter(client -> id == client.getId())
@@ -34,4 +35,5 @@ public class MockFutureEitherEmployeeRepository {
 
         return completableFuture;
     }
+
 }

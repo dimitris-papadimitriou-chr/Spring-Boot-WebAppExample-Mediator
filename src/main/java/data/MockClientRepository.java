@@ -3,23 +3,22 @@ package data;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
 import model.Client;
-import model.Employee;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 
-public class MockFutureEitherClientRepository {
+public class MockClientRepository  implements Repository<Client,Integer> {
 
     private Client[] clients;
 
-    public MockFutureEitherClientRepository() {
+    public MockClientRepository() {
         this.clients = new Client[]{
                 new Client(1, "jim", 1),
                 new Client(2, "john", 3)};
     }
 
-    public CompletableFuture<Either<String,Client>> getClientById(int id) {
+    public CompletableFuture<Either<String,Client>> getById(Integer id) {
 
         var t = Stream.of(clients)
                 .filter(client -> id == client.getId())
