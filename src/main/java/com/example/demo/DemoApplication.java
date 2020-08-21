@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import commands.GetClientCommand;
-import org.springframework.boot.SpringApplication;
+ import commands.GetClientCommand;
+ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import static operators.Extensions.throwableMessage;
 @RestController
 public class DemoApplication {
 
-     static DemoAppMediator mediator = new DemoAppMediator();
+    static DemoAppMediator mediator = new DemoAppMediator();
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);

@@ -1,6 +1,6 @@
 package commands;
 
-import mediator.Command;
+import an.awesome.pipelinr.Command;
 import data.MockClientRepository;
 import data.MockEmployeeRepository;
 import data.Repository;

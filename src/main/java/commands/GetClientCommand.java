@@ -1,6 +1,6 @@
 package commands;
 
-import mediator.Command;
+import an.awesome.pipelinr.Command;
 import io.vavr.control.Either;
 import model.Employee;
 
